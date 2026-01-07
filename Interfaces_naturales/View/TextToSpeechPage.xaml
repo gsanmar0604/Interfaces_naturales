@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:Interfaces_naturales.ViewModel"
+             xmlns:models="clr-namespace:Interfaces_naturales.Model"
+             x:Class="Interfaces_naturales.View.TextToSpeechPage"
+             x:DataType="viewModels:TextToSpeechViewModel"
+             Title="Texto a Voz"
+             BackgroundColor="{DynamicResource PageBackgroundColor}">
+    <Grid RowDefinitions="Auto,*" Padding="20" RowSpacing="20">
+
+        <ScrollView Grid.Row="0">
+            <VerticalStackLayout Spacing="20">
+
+                <Label
+                    Text="Texto a Voz"
+                    Style="{StaticResource TitleLabelStyle}"/>
+
+                <Label
+                    Text="{Binding StatusText}"
+                    Style="{StaticResource StatusLabelStyle}"/>
+
+                <Border Style="{StaticResource ResultBorderStyle}">
+                    <Editor
+                        Text="{Binding TextToSpeak}"
+                        Placeholder="Escribe el texto que quieres escuchar..."
+                        MinimumHeightRequest="120"
+                        MaximumHeightRequest="200"
+                        FontSize="16"
+                        AutoSize="TextChanges"/>
+                </Border>
+
+                <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
+                    <Button
+                        Grid.Column="0"
+                        Text="Reproducir"
+                        Command="{Binding SpeakCommand}"
+                        Style="{StaticResource PrimaryButtonStyle}"/>
+
+                    <Button
+                        Grid.Column="1"
+                        Text="Detener"
+                        Command="{Binding StopCommand}"
+                        Style="{StaticResource SecondaryButtonStyle}"/>
+                </Grid>
+
+                <Button
+                    Text="Limpiar"
+                    Command="{Binding ClearCommand}"
+                    Style="{StaticResource SecondaryButtonStyle}"/>
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <VerticalStackLayout Grid.Row="1" Spacing="10">
+            <Grid ColumnDefinitions="*,Auto" Margin="0,10,0,0">
+                <Label
+                    Grid.Column="0"
+                    Text="Historial"
+                    FontSize="20"
+                    FontAttributes="Bold"
+                    VerticalOptions="Center"/>
+                <Button
+                    Grid.Column="1"
+                    Text="Borrar Todo"
+                    Command="{Binding ClearHistoryCommand}"
+                    FontSize="12"
+                    Padding="10,5"
+                    BackgroundColor="{StaticResource SecondaryColor}"
+                    TextColor="White"
+                    CornerRadius="5"/>
+            </Grid>
+
+            <CollectionView ItemsSource="{Binding History}">
+                <CollectionView.EmptyView>
+                    <Label
+                        Text="No hay elementos en el historial"
+                        Style="{StaticResource HintLabelStyle}"
+                        Margin="0,20,0,0"/>
+                </CollectionView.EmptyView>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:SpeechHistoryItem">
+                        <Border Style="{StaticResource HistoryItemBorderStyle}">
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer 
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:TextToSpeechViewModel}}, Path=UseHistoryItemCommand}"
+                                    CommandParameter="{Binding .}"/>
+                            </Border.GestureRecognizers>
+                            <VerticalStackLayout Spacing="5">
+                                <Label
+                                    Text="{Binding Text}"
+                                    FontSize="14"
+                                    MaxLines="2"
+                                    LineBreakMode="TailTruncation"/>
+                                <Label
+                                    Text="{Binding CreatedAt, StringFormat='{0:dd/MM/yyyy HH:mm}'}"
+                                    FontSize="12"
+                                    TextColor="{StaticResource SubtleTextColor}"/>
+                            </VerticalStackLayout>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+
+    </Grid>
+</ContentPage>

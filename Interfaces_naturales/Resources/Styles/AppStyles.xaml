@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Interfaces_naturales.Resources.Styles.AppStyles">
+    <!-- Colores -->
+    <Color x:Key="PrimaryColor">#007AFF</Color>
+    <Color x:Key="SecondaryColor">#FF3B30</Color>
+    <Color x:Key="AccentColor">#34C759</Color>
+    <Color x:Key="TextColor">#000000</Color>
+    <Color x:Key="SubtleTextColor">#808080</Color>
+    <Color x:Key="BackgroundColor">#FFFFFF</Color>
+    <Color x:Key="BorderColor">#E0E0E0</Color>
+
+    <!-- Labels -->
+    <Style x:Key="TitleLabelStyle" TargetType="Label">
+        <Setter Property="FontSize" Value="32"/>
+        <Setter Property="FontAttributes" Value="Bold"/>
+        <Setter Property="HorizontalOptions" Value="Center"/>
+        <Setter Property="Margin" Value="0,20,0,10"/>
+        <Setter Property="TextColor" Value="{StaticResource TextColor}"/>
+    </Style>
+
+    <Style x:Key="StatusLabelStyle" TargetType="Label">
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="HorizontalOptions" Value="Center"/>
+        <Setter Property="TextColor" Value="{StaticResource SubtleTextColor}"/>
+    </Style>
+
+    <Style x:Key="ResultLabelStyle" TargetType="Label">
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="MinimumHeightRequest" Value="150"/>
+        <Setter Property="VerticalOptions" Value="Start"/>
+        <Setter Property="TextColor" Value="{StaticResource TextColor}"/>
+        <Setter Property="LineBreakMode" Value="WordWrap"/>
+    </Style>
+
+    <Style x:Key="HintLabelStyle" TargetType="Label">
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="HorizontalOptions" Value="Center"/>
+        <Setter Property="TextColor" Value="{StaticResource SubtleTextColor}"/>
+        <Setter Property="Margin" Value="0,20,0,0"/>
+        <Setter Property="HorizontalTextAlignment" Value="Center"/>
+    </Style>
+
+    <!-- Botones -->
+    <Style x:Key="PrimaryButtonStyle" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="{StaticResource PrimaryColor}"/>
+        <Setter Property="TextColor" Value="White"/>
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="Padding" Value="15"/>
+        <Setter Property="Margin" Value="0,20,0,0"/>
+        <Setter Property="CornerRadius" Value="10"/>
+    </Style>
+
+    <Style x:Key="SecondaryButtonStyle" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="{StaticResource SecondaryColor}"/>
+        <Setter Property="TextColor" Value="White"/>
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="Padding" Value="12"/>
+        <Setter Property="CornerRadius" Value="10"/>
+    </Style>
+
+    <Style x:Key="NavigationButtonStyle" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="{StaticResource AccentColor}"/>
+        <Setter Property="TextColor" Value="White"/>
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="Padding" Value="12"/>
+        <Setter Property="Margin" Value="0,10,0,0"/>
+        <Setter Property="CornerRadius" Value="10"/>
+    </Style>
+
+    <!-- Borders -->
+    <Style x:Key="ResultBorderStyle" TargetType="Border">
+        <Setter Property="Stroke" Value="{StaticResource BorderColor}"/>
+        <Setter Property="StrokeThickness" Value="2"/>
+        <Setter Property="Padding" Value="20"/>
+        <Setter Property="Margin" Value="0,20,0,0"/>
+        <Setter Property="BackgroundColor" Value="{StaticResource BackgroundColor}"/>
+        <Setter Property="StrokeShape" Value="RoundRectangle 10"/>
+    </Style>
+
+    <Style x:Key="HistoryItemBorderStyle" TargetType="Border">
+        <Setter Property="Stroke" Value="{StaticResource BorderColor}"/>
+        <Setter Property="StrokeThickness" Value="1"/>
+        <Setter Property="Padding" Value="15"/>
+        <Setter Property="Margin" Value="0,5"/>
+        <Setter Property="BackgroundColor" Value="{StaticResource BackgroundColor}"/>
+        <Setter Property="StrokeShape" Value="RoundRectangle 8"/>
+    </Style>
+</ResourceDictionary>

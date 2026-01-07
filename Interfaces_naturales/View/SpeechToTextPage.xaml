@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Interfaces_naturales.View.SpeechToTextPage"
+             xmlns:viewModels="clr-namespace:Interfaces_naturales.ViewModel"
+             x:DataType="viewModels:SpeechToTextViewModel"
+             Title="Voz a Texto"
+             BackgroundColor="{DynamicResource PageBackgroundColor}">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30"
+            Spacing="25">
+
+            <Label
+                Text="Reconocimiento de Voz"
+                Style="{StaticResource TitleLabelStyle}"/>
+
+            <Label
+                Text="{Binding StatusText}"
+                Style="{StaticResource StatusLabelStyle}"/>
+
+            <Border Style="{StaticResource ResultBorderStyle}">
+                <Label
+                    Text="{Binding RecognizedText}"
+                    Style="{StaticResource ResultLabelStyle}"/>
+            </Border>
+
+            <Button
+                Text="{Binding ButtonText}"
+                Command="{Binding StartListeningCommand}"
+                Style="{StaticResource PrimaryButtonStyle}"/>
+
+            <Button
+                Text="Limpiar"
+                Command="{Binding ClearCommand}"
+                Style="{StaticResource SecondaryButtonStyle}"/>
+
+            <Button
+                Text="Ir a Texto → Voz"
+                Command="{Binding NavigateToTextToSpeechCommand}"
+                Style="{StaticResource NavigationButtonStyle}"/>
+
+            <Label
+                Text="Presiona 'Iniciar Reconocimiento' y habla claramente"
+                Style="{StaticResource HintLabelStyle}"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

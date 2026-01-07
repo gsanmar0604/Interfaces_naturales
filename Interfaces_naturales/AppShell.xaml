@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="Interfaces_naturales.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Interfaces_naturales"
+    xmlns:views="clr-namespace:Interfaces_naturales.View"
+    Title="Interfaces_naturales">
+
+    <TabBar>
+        <ShellContent
+            Title="Voz → Texto"
+            Icon="mic.png"
+            ContentTemplate="{DataTemplate views:SpeechToTextPage}"
+            Route="SpeechToTextPage" />
+
+        <ShellContent
+            Title="Texto → Voz"
+            Icon="speaker.png"
+            ContentTemplate="{DataTemplate views:TextToSpeechPage}"
+            Route="TextToSpeechPage" />
+    </TabBar>
+
+</Shell>
